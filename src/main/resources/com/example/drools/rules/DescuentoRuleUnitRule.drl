@@ -1,0 +1,11 @@
+package com.example.drools.rules
+
+unit DescuentoRuleUnit
+
+rule "Descuento para menores de 25"
+when
+    $c: /clientes[edad < 25]
+then
+    modify($c) { setDescuento(10.0) };
+    System.out.println($c.getNombre() + " recibe un 10% de descuento.");
+end
